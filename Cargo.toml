@@ -1,7 +1,3 @@
-[package]
-name = "io-uring"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-io-uring = "0.7.4"
+[workspace]
+resolver = "2"
+members = ["blocking", "epoll"]
