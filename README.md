@@ -30,3 +30,9 @@ sequenceDiagram
     Server->>OS: close(socket_fd)
     OS-->>Server: Return status
 ```
+
+## 2 - Using epoll
+TODO
+
+## 3 - Using io-uring
+TODO
