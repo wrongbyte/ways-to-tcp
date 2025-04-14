@@ -4,7 +4,7 @@
 #include <sys/socket.h> // socket, bind, listen, accept, AF_INET, SOCK_STREAM
 #include <sys/types.h>  // htonl, htons, socklen_t
 #include <unistd.h>     // read, write, close
-
+#include <sys/stat.h>
 // This is used to pre-allocate the char array size
 // For our use case, we will accept that it's not possible to read messages larger than this
 #define MAX_MESSAGE_SIZE 256
@@ -29,6 +29,10 @@ int main(void)
     // creates an endpoint for communication and returns a file descriptor that refers to that endpoint
     // SOCK_STREAM defines that this should communicate over TCP
     int socket_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
+    struct stat st;
+
+    fstat(socket_file_descriptor, &st);
+    printf("Socket created with inode: %lu\n", st.st_ino);
 
     // https://man7.org/linux/man-pages/man2/bind.2.html
     // bind() assigns the address specified by server_sockaddr_in to the socket socket_file_descriptor

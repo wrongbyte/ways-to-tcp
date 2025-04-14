@@ -24,6 +24,7 @@ sequenceDiagram
     Server->>OS: read(connection_fd, buffer, MAX_MESSAGE_SIZE)
     OS-->>Server: Return bytes read
     
+    note over Server,OS: The write() and read() syscalls are the same used for writing or <br> reading files on the hard disk. Linux has a VFS <br> for sockets - the sockfs - to make this operation possible.
     Server->>OS: write(connection_fd, status, 1)
     OS-->>Client: Receive status byte
     

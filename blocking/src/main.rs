@@ -10,8 +10,8 @@
 /// it.
 ///
 /// The accept() syscall is called by the program to return a completed connection from the front of the queue of completed connections. If this queue is empty, the process is put to sleep and waits until a connection arrives at the queue. In this sense, accept() is blocking the execution of the program (assuming that the socket was set as "blocking"). https://stackoverflow.com/a/78253560/16886135
-/// You can refer to `tcp_server.c` to see what syscalls are called in order to run
-/// a TCP server.
+/// You can refer to `tcp_server.c` to get an idea about what syscalls are called
+/// in order to run a TCP server.
 use std::{
     io::{BufRead, BufReader, Write},
     net::{TcpListener, TcpStream},
